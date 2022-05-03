@@ -1,7 +1,7 @@
 from conta import Conta
 
-class CriarConta:
 
+class CriarConta:
     if __name__ == '__main__':
         conta = Conta('21.342=7')
         conta.creditar(500.87)
