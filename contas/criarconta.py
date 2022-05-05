@@ -1,4 +1,4 @@
-from conta import Conta
+from contas import Conta
 
 
 class CriarConta:

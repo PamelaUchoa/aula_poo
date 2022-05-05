@@ -1,5 +1,5 @@
-from banco import Banco
-from conta import Conta
+from bancos import Banco
+from contas import Conta
 
 
 class CriarBanco:
