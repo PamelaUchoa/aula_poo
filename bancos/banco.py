@@ -1,5 +1,5 @@
-from contas import Conta
-
+from contas.conta import Conta
+from contas.contaEspecial import ContaEspecial
 
 class Banco:
     def __init__(self):
@@ -29,6 +29,14 @@ class Banco:
             conta.creditar(valor)
         else:
             print("Conta Inexistente!")
+
+    def renderBonus(self, numero):
+        conta = self.procurar_conta(numero)
+        if conta and isinstance(conta, ContaEspecial):
+            conta.renderBonus()
+        else:
+            print("Conta nao e especial!")
+
 
     def debitar(self, numero, valor):
         conta = self.procurar_conta(numero)
