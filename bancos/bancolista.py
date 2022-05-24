@@ -1,4 +1,6 @@
 from contas import Conta
+from excecoes.CIE import CIException
+from excecoes.SIE import SIExpection
 
 
 class BancoLista:
@@ -30,11 +32,15 @@ class BancoLista:
             print("Conta Inexistente!")
 
     def debitar(self, numero, valor):
-        conta = self.procurar_conta(numero)
-        if conta:
+        try:
+            conta = self.procurar_conta(numero)
             conta.debitar(valor)
-        else:
-            print("Conta Inexistente!")
+
+        except CIException(numero) as errorci:
+            print(errorci)
+
+        except SIExpection(conta.get_saldo(), conta.get_numero()) as errorsi:
+            print(errorsi)
 
     def saldo(self, numero):
         conta = self.procurar_conta(numero)
